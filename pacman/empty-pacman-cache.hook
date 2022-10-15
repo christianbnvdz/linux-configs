@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Clearing all packages from package cache using paccache -rk 0
+Exec = /usr/bin/paccache -rk 0
+When = PostTransaction

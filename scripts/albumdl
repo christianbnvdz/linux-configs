@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Usage: albumdl <album name> <artist> <genre> <year of release> <youtube playlist link>
+
+# This script is aimed at downloading music albums from youtube using a playlist link. Each song will be
+# tagged with metadata provided by arguments to this script. This might work for individual song links or
+# non-youtube links but don't expect it to.
+
+METADATA="-metadata album='$1' -metadata artist='$2' -metadata genre='$3' -metadata date='$4'"
+OUTPATH="~/Music/Albums/$2/$1/%(playlist_index)s. %(title)s.down"
+LINK=$5
+
+echo METADATA: $METADATA
+echo OUTPUT PATH: $OUTPATH
+echo LINK: $LINK
+read -p "Is this ok (y/N)? " choice
+case "$choice" in
+	y|Y ) echo "Proceeding...";;
+	* ) exit;;
+esac
+
+youtube-dl --rm-cache-dir -x -4 --audio-format mp3 --postprocessor-args "$METADATA" -o "$OUTPATH" $LINK &&
+
+for song in ~/Music/Albums/"$2"/"$1"/*.mp3; do
+	mv -- "$song" "${song%.mp3}"
+done
