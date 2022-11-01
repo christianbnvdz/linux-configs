@@ -19,6 +19,6 @@ System level configurations.
 ## scripts
 Bash scripts.
 
-[^1]: All configuration related to theming is held in the desktop\_themes directory. This means that desktop\_themes/<name of theme>/bash\_themes/ contains bash themes that can be sourced by .bashrc that are meant to be used with that theme directory.
+[^1]: All configuration related to theming is held in the desktop\_themes directory. This means that desktop\_themes/\<name of theme\>/bash\_themes/ contains bash themes that can be sourced by .bashrc that are meant to be used with that theme directory.
 
 [^2]: There may potentially be a README file at the root of a theme.
