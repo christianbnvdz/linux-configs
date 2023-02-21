@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# A simple script for deleting stuff that I usually delete if I need
+# space.
+
+# Usage: cleanup
+
+#username=???
+directories=("/var/log/journal"
+             "/var/cache/pacman/pkg"
+             "/home/$username/.config/discord/Cache"
+             "/home/$username/.config/discord/Code Cache"
+             "/home/$username/.cache/mozilla/firefox"
+)
+
+for (( i=0; i<${#directories[@]}; ++i )); do
+    if [ -d "${directories[$i]}" ]; then
+        dir_items=$(ls -A "${directories[$i]}")
+	if [ -n "$dir_items" ]; then
+            rm -rf "${directories[$i]}/"*
+	fi
+    fi
+done
