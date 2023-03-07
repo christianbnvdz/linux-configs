@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Set path to include the current directory
+export PATH="$PATH:./"
+
 # Import themeing
 . ~/.config/bash/themes/endeavour
 
