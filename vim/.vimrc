@@ -8,6 +8,9 @@ set showcmd
 
 set incsearch
 
+set tabstop=2 
+set expandtab
+
 filetype plugin indent on
 set splitbelow splitright
 
